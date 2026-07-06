@@ -1,0 +1,383 @@
+[0m14:38:26.469824 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf94821b68b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf94820b37d60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf94820b37df0>]}
+
+
+============================== 14:38:26.471085 | 3ebf5c0b-10a7-4a3e-8c2a-c94d72a6725a ==============================
+[0m14:38:26.471085 [info ] [MainThread]: Running with dbt=1.11.12
+[0m14:38:26.471551 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'log_cache_events': 'False', 'partial_parse': 'True', 'fail_fast': 'False', 'no_print': 'None', 'invocation_command': 'dbt deps --profiles-dir .', 'version_check': 'True', 'empty': 'None', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'debug': 'False', 'write_json': 'True', 'target_path': 'None', 'introspect': 'True', 'warn_error': 'None', 'indirect_selection': 'eager', 'log_path': '/sessions/magical-eager-hopper/mnt/DA.Project/claims_denial_analytics/logs', 'profiles_dir': '.', 'use_colors': 'True', 'quiet': 'False', 'static_parser': 'True', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True'}
+[0m14:38:26.532294 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3ebf5c0b-10a7-4a3e-8c2a-c94d72a6725a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf94820a9aaa0>]}
+[0m14:38:26.536547 [debug] [MainThread]: Set downloads directory='/sessions/magical-eager-hopper/tmp/dbt-downloads-rgpmyxrj'
+[0m14:38:26.536956 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m14:38:26.539842 [debug] [MainThread]: External call exception: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+[0m14:38:26.540222 [debug] [MainThread]: Retrying external call. Attempt: 0 Max attempts: 5
+[0m14:38:27.547042 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m14:38:27.553778 [debug] [MainThread]: External call exception: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+[0m14:38:27.554817 [debug] [MainThread]: Retrying external call. Attempt: 1 Max attempts: 5
+[0m14:38:28.560784 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m14:38:28.567582 [debug] [MainThread]: External call exception: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+[0m14:38:28.568625 [debug] [MainThread]: Retrying external call. Attempt: 2 Max attempts: 5
+[0m14:38:29.572407 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m14:38:29.580745 [debug] [MainThread]: External call exception: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+[0m14:38:29.582068 [debug] [MainThread]: Retrying external call. Attempt: 3 Max attempts: 5
+[0m14:38:30.586788 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m14:38:30.594680 [debug] [MainThread]: External call exception: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+[0m14:38:30.596289 [debug] [MainThread]: Retrying external call. Attempt: 4 Max attempts: 5
+[0m14:38:31.601077 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m14:38:31.608161 [error] [MainThread]: Encountered an error:
+External connection exception occurred: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+[0m14:38:31.617752 [error] [MainThread]: Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 774, in urlopen
+    self._prepare_proxy(conn)
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 1055, in _prepare_proxy
+    conn.connect()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 776, in connect
+    self._tunnel()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 275, in _tunnel
+    raise OSError(
+OSError: Tunnel connection failed: 403 Forbidden
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/util/retry.py", line 543, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt_common/utils/connection.py", line 22, in connection_exception_retry
+    return fn()
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/clients/registry.py", line 168, in _get_index
+    resp = requests.get(url, timeout=30)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 723, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 774, in urlopen
+    self._prepare_proxy(conn)
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 1055, in _prepare_proxy
+    conn.connect()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 776, in connect
+    self._tunnel()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 275, in _tunnel
+    raise OSError(
+OSError: Tunnel connection failed: 403 Forbidden
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/util/retry.py", line 543, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt_common/utils/connection.py", line 22, in connection_exception_retry
+    return fn()
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/clients/registry.py", line 168, in _get_index
+    resp = requests.get(url, timeout=30)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 723, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 774, in urlopen
+    self._prepare_proxy(conn)
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 1055, in _prepare_proxy
+    conn.connect()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 776, in connect
+    self._tunnel()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 275, in _tunnel
+    raise OSError(
+OSError: Tunnel connection failed: 403 Forbidden
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/util/retry.py", line 543, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt_common/utils/connection.py", line 22, in connection_exception_retry
+    return fn()
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/clients/registry.py", line 168, in _get_index
+    resp = requests.get(url, timeout=30)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 723, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 774, in urlopen
+    self._prepare_proxy(conn)
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 1055, in _prepare_proxy
+    conn.connect()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 776, in connect
+    self._tunnel()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 275, in _tunnel
+    raise OSError(
+OSError: Tunnel connection failed: 403 Forbidden
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/util/retry.py", line 543, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt_common/utils/connection.py", line 22, in connection_exception_retry
+    return fn()
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/clients/registry.py", line 168, in _get_index
+    resp = requests.get(url, timeout=30)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 723, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 774, in urlopen
+    self._prepare_proxy(conn)
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 1055, in _prepare_proxy
+    conn.connect()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 776, in connect
+    self._tunnel()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 275, in _tunnel
+    raise OSError(
+OSError: Tunnel connection failed: 403 Forbidden
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/util/retry.py", line 543, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt_common/utils/connection.py", line 22, in connection_exception_retry
+    return fn()
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/clients/registry.py", line 168, in _get_index
+    resp = requests.get(url, timeout=30)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 723, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 774, in urlopen
+    self._prepare_proxy(conn)
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 1055, in _prepare_proxy
+    conn.connect()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 776, in connect
+    self._tunnel()
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 275, in _tunnel
+    raise OSError(
+OSError: Tunnel connection failed: 403 Forbidden
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.10/dist-packages/urllib3/util/retry.py", line 543, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt_common/utils/connection.py", line 22, in connection_exception_retry
+    return fn()
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/clients/registry.py", line 168, in _get_index
+    resp = requests.get(url, timeout=30)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 723, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 258, in wrapper
+    return func(*args, **kwargs)
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 321, in wrapper
+    return func(*args, **kwargs)
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/cli/main.py", line 466, in deps
+    results = task.run()
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/task/deps.py", line 289, in run
+    self.lock()
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/task/deps.py", line 261, in lock
+    resolved_deps = resolve_packages(packages, self.project, self.cli_vars)
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/deps/resolver.py", line 131, in resolve_packages
+    target = final[package].resolved().fetch_metadata(project, renderer)
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/deps/registry.py", line 98, in resolved
+    self._check_in_index()
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/deps/registry.py", line 75, in _check_in_index
+    index = registry.index_cached()
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/utils/utils.py", line 127, in __call__
+    value = self.func(*args)
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt/clients/registry.py", line 189, in index
+    return connection_exception_retry(get_index_fn, 5)
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt_common/utils/connection.py", line 36, in connection_exception_retry
+    return connection_exception_retry(fn, max_attempts, attempt + 1)
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt_common/utils/connection.py", line 36, in connection_exception_retry
+    return connection_exception_retry(fn, max_attempts, attempt + 1)
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt_common/utils/connection.py", line 36, in connection_exception_retry
+    return connection_exception_retry(fn, max_attempts, attempt + 1)
+  [Previous line repeated 2 more times]
+  File "/sessions/magical-eager-hopper/.local/lib/python3.10/site-packages/dbt_common/utils/connection.py", line 38, in connection_exception_retry
+    raise ConnectionError("External connection exception occurred: " + str(exc))
+dbt_common.exceptions.connection.ConnectionError: External connection exception occurred: HTTPSConnectionPool(host='hub.getdbt.com', port=443): Max retries exceeded with url: /api/v1/index.json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+
+[0m14:38:31.621814 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": false, "command_wall_clock_time": 5.175068, "process_in_blocks": "5256", "process_kernel_time": 0.049427, "process_mem_max_rss": "102416", "process_out_blocks": "8", "process_user_time": 0.527565}
+[0m14:38:31.622784 [debug] [MainThread]: Command `dbt deps` failed at 14:38:31.622686 after 5.18 seconds
+[0m14:38:31.623655 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf94821b68b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf9482096ee30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf9482096ef80>]}
+[0m14:38:31.624480 [debug] [MainThread]: Flushing usage events
+[0m14:38:31.628772 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:41:51.767651 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf1a1e3ef0bb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf1a1e2ea0970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf1a1e2ea26b0>]}
+
+
+============================== 14:41:51.769083 | 9236780e-240e-4a37-a700-8154661c8def ==============================
+[0m14:41:51.769083 [info ] [MainThread]: Running with dbt=1.11.12
+[0m14:41:51.769470 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'partial_parse': 'True', 'version_check': 'True', 'fail_fast': 'False', 'profiles_dir': '/sessions/magical-eager-hopper/prof', 'invocation_command': 'dbt run --profiles-dir /sessions/magical-eager-hopper/prof', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False', 'target_path': 'None', 'introspect': 'True', 'log_path': '/sessions/magical-eager-hopper/mnt/DA.Project/claims_denial_analytics/logs', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'write_json': 'True', 'empty': 'False', 'cache_selected_only': 'False', 'use_colors': 'True', 'printer_width': '80', 'log_cache_events': 'False'}
+[0m14:41:51.861258 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '9236780e-240e-4a37-a700-8154661c8def', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf1a1e3087730>]}
+[0m14:41:51.882889 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '9236780e-240e-4a37-a700-8154661c8def', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf1a1e2ea3970>]}
+[0m14:41:51.883944 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m14:41:51.907930 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found 1 package(s) specified in packages.yml, but only 0 package(s) installed in dbt_packages. Run "dbt deps" to install package dependencies.
+[0m14:41:51.908839 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.1625715, "process_in_blocks": "40", "process_kernel_time": 0.078331, "process_mem_max_rss": "136412", "process_out_blocks": "8", "process_user_time": 0.562377}
+[0m14:41:51.909225 [debug] [MainThread]: Command `dbt run` failed at 14:41:51.909175 after 0.16 seconds
+[0m14:41:51.909596 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf1a1e3ef0bb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf1a1dda772e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xf1a1dda74dc0>]}
+[0m14:41:51.910058 [debug] [MainThread]: Flushing usage events
+[0m14:41:51.914180 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:42:02.983791 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xe9b9b59d8b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xe9b9b497a620>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xe9b9b49792d0>]}
+
+
+============================== 14:42:02.984986 | 6501683a-32ec-4e05-88f3-6a926ee49c28 ==============================
+[0m14:42:02.984986 [info ] [MainThread]: Running with dbt=1.11.12
+[0m14:42:02.985389 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'partial_parse': 'True', 'target_path': 'None', 'use_colors': 'True', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True', 'log_cache_events': 'False', 'version_check': 'True', 'fail_fast': 'False', 'warn_error': 'None', 'empty': 'False', 'quiet': 'False', 'indirect_selection': 'eager', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt run --profiles-dir /sessions/magical-eager-hopper/prof', 'profiles_dir': '/sessions/magical-eager-hopper/prof', 'static_parser': 'True', 'log_path': '/sessions/magical-eager-hopper/mnt/DA.Project/claims_denial_analytics/logs', 'use_experimental_parser': 'False', 'no_print': 'None', 'introspect': 'True', 'printer_width': '80'}
+[0m14:42:03.065868 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6501683a-32ec-4e05-88f3-6a926ee49c28', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xe9b9b7cf7bb0>]}
+[0m14:42:03.087259 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '6501683a-32ec-4e05-88f3-6a926ee49c28', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xe9b9b4ac74f0>]}
+[0m14:42:03.088292 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m14:42:03.110775 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found 1 package(s) specified in packages.yml, but only 0 package(s) installed in dbt_packages. Run "dbt deps" to install package dependencies.
+[0m14:42:03.111576 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.14846425, "process_in_blocks": "0", "process_kernel_time": 0.032014, "process_mem_max_rss": "136408", "process_out_blocks": "0", "process_user_time": 0.56326}
+[0m14:42:03.111965 [debug] [MainThread]: Command `dbt run` failed at 14:42:03.111916 after 0.15 seconds
+[0m14:42:03.112308 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xe9b9b59d8b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xe9b9b48a8340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xe9b9b48ab2b0>]}
+[0m14:42:03.112638 [debug] [MainThread]: Flushing usage events
+[0m14:42:03.115491 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,0 +1,6 @@
+duckdb>=1.0
+pandas>=2.0
+pyarrow>=14.0
+faker>=24.0
+dbt-core>=1.7
+dbt-duckdb>=1.7

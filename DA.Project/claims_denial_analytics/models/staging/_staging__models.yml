@@ -1,0 +1,119 @@
+version: 2
+
+models:
+  - name: stg_patients
+    description: "Cleaned patient dimension, one row per patient."
+    columns:
+      - name: patient_id
+        description: "Primary key."
+        tests: [not_null, unique]
+      - name: insurance_type
+        description: "Patient's coverage type."
+        tests:
+          - accepted_values:
+              values: ['commercial', 'medicare', 'medicaid']
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['M', 'F']
+
+  - name: stg_providers
+    description: "Cleaned provider dimension, one row per provider."
+    columns:
+      - name: provider_id
+        description: "Primary key."
+        tests: [not_null, unique]
+      - name: specialty
+        tests:
+          - accepted_values:
+              values: ['Cardiology', 'Orthopedics', 'Radiology', 'Primary Care',
+                       'Emergency Medicine', 'Oncology', 'Dermatology', 'Gastroenterology']
+
+  - name: stg_payers
+    description: "Cleaned payer dimension, one row per payer."
+    columns:
+      - name: payer_id
+        description: "Primary key."
+        tests: [not_null, unique]
+      - name: payer_type
+        tests:
+          - accepted_values:
+              values: ['commercial', 'medicare', 'medicaid']
+
+  - name: stg_carc_codes
+    description: "CARC (Claim Adjustment Reason Code) dimension, one row per code."
+    columns:
+      - name: carc_code
+        description: "Primary key. X12 claim adjustment reason code."
+        tests: [not_null, unique]
+      - name: carc_category
+        description: "Operational bucket used to size appeal economics."
+        tests:
+          - accepted_values:
+              values: ['technical', 'coding', 'coverage', 'medical_necessity']
+
+  - name: stg_encounters
+    description: "Cleaned encounter fact, one row per clinical visit."
+    columns:
+      - name: encounter_id
+        description: "Primary key."
+        tests: [not_null, unique]
+      - name: patient_id
+        tests:
+          - relationships:
+              to: ref('stg_patients')
+              field: patient_id
+      - name: provider_id
+        tests:
+          - relationships:
+              to: ref('stg_providers')
+              field: provider_id
+
+  - name: stg_claims
+    description: "Cleaned claim fact, one row per claim (1:1 with encounter)."
+    columns:
+      - name: claim_id
+        description: "Primary key."
+        tests: [not_null, unique]
+      - name: encounter_id
+        description: "FK to encounter; unique because claims are 1:1 with encounters."
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_encounters')
+              field: encounter_id
+      - name: payer_id
+        tests:
+          - relationships:
+              to: ref('stg_payers')
+              field: payer_id
+      - name: claim_status
+        tests:
+          - accepted_values:
+              values: ['paid', 'denied', 'pending']
+
+  - name: stg_denials
+    description: "Cleaned denial fact, one row per denied claim."
+    columns:
+      - name: denial_id
+        description: "Primary key."
+        tests: [not_null, unique]
+      - name: claim_id
+        description: "FK to the denied claim; unique (one denial per claim)."
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_claims')
+              field: claim_id
+      - name: carc_code
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_carc_codes')
+              field: carc_code
+      - name: appeal_status
+        tests:
+          - accepted_values:
+              values: ['not_appealed', 'appeal_pending', 'appeal_won', 'appeal_lost']

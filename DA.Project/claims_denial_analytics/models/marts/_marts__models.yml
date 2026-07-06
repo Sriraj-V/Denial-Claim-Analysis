@@ -1,0 +1,93 @@
+version: 2
+
+models:
+  - name: fct_denials
+    description: >
+      Fully denormalized denial fact. Grain: one row per denial. Joins claim,
+      encounter, provider, payer and CARC attributes and computes the
+      recoverable-dollar estimate (billed x appeal_win_rate x category_multiplier).
+    columns:
+      - name: denial_key
+        description: "Surrogate key of the denial grain."
+        tests: [not_null, unique]
+      - name: denial_id
+        description: "Natural key of the denial."
+        tests: [not_null, unique]
+      - name: claim_id
+        description: "The denied claim (one denial per claim)."
+        tests: [not_null, unique]
+      - name: carc_code
+        description: "X12 Claim Adjustment Reason Code driving the denial."
+        tests: [not_null]
+      - name: carc_category
+        description: "Operational bucket: technical / coding / coverage / medical_necessity."
+        tests:
+          - accepted_values:
+              values: ['technical', 'coding', 'coverage', 'medical_necessity']
+      - name: specialty
+        description: "Rendering provider specialty."
+      - name: payer_type
+        description: "commercial / medicare / medicaid."
+      - name: billed_amount
+        description: "Provider charge on the denied claim."
+        tests: [not_null]
+      - name: appeal_win_rate
+        description: "Historical share of appeals paid, by CARC category."
+      - name: category_multiplier
+        description: "Fraction of billed realistically recovered on a won appeal."
+      - name: recoverable_amount
+        description: "billed_amount x appeal_win_rate x category_multiplier."
+        tests: [not_null]
+
+  - name: agg_denial_patterns
+    description: >
+      Denial density by (payer_type x specialty x carc_category). Includes the
+      segment denial rate and recoverable dollars so patterns can be ranked by
+      count or by $. Grain: one row per payer_type x specialty x carc_category.
+    columns:
+      - name: pattern_key
+        description: "Surrogate key of payer_type x specialty x carc_category."
+        tests: [not_null, unique]
+      - name: payer_type
+        description: "Payer type of the segment."
+      - name: specialty
+        description: "Provider specialty of the segment."
+      - name: carc_category
+        description: "Denial category."
+      - name: segment_denial_rate_pct
+        description: "Denied claims / total claims for the payer_type x specialty segment."
+      - name: total_recoverable
+        description: "Sum of recoverable dollars in the pattern."
+        tests: [not_null]
+
+  - name: agg_recoverable_dollars
+    description: >
+      Recoverable-dollar pool by CARC category, flagging the high-appeal-value
+      (technical + coding) categories. Grain: one row per carc_category.
+    columns:
+      - name: carc_category
+        description: "Denial category."
+        tests: [not_null, unique]
+      - name: is_high_appeal_value
+        description: "True for technical/coding (worth appealing)."
+      - name: total_recoverable
+        description: "Recoverable dollar pool for the category."
+        tests: [not_null]
+      - name: pct_of_total_recoverable
+        description: "Category's share of the total recoverable pool."
+
+  - name: mart_workflow_recommendations
+    description: >
+      Top-5 fix opportunities ranked by priority_score (recoverable $ x
+      fix_probability), each with a concrete recommended workflow action.
+      Grain: one row per recommendation (priority_rank 1-5).
+    columns:
+      - name: priority_rank
+        description: "1 = highest-leverage fix."
+        tests: [not_null, unique]
+      - name: recommended_action
+        description: "Operational workflow change to implement."
+        tests: [not_null]
+      - name: priority_score
+        description: "total_recoverable x fix_probability."
+        tests: [not_null]

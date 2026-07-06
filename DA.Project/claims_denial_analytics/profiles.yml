@@ -1,0 +1,12 @@
+# DuckDB profile for the claims denial analytics project.
+# The DuckDB file is produced by Phase 1 (scripts/load_duckdb.py).
+# Path is relative to the directory dbt is invoked from (the project dir).
+claims_denial_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "../data/claims.duckdb"
+      threads: 4
+      extensions:
+        - parquet
